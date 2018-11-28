@@ -1,25 +1,33 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Time from './Components/Time';
+import TodolList from './Components/TodolList';
 
 class App extends Component {
+  
+  constructor(props) {
+    super(props);
+    this.allTime = new Date().getTime();
+    this.state = {
+      name:'hao'
+    }
+    
+  }
+
+     
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <div className="Title">
+          <h2>TO DO LIST</h2>
+        </div>
+        <Time time = {this.allTime} />
+        <div className="Form-enter-job">
+          <input type="text" className="Add-job" placeholder='Add jobs'/>
+        </div>
+        <TodolList />
+      
       </div>
     );
   }

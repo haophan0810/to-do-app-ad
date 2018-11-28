@@ -1,32 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  max-width: 600px;
+  margin: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-top: 50px;
+  -webkit-box-shadow: 4px 4px 14px 0px rgba(50, 50, 50, 0.40);
+  -moz-box-shadow: 4px 4px 14px 0px rgba(50, 50, 50, 0.40);
+  box-shadow: 4px 4px 14px 0px rgba(50, 50, 50, 0.40);
+  padding: 15px;
 }
 
-.App-link {
-  color: #61dafb;
+.Add-job::placeholder {
+  color: #d4d4d4;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Title h2 {
+  text-align: center;
+  padding: 15px 0;
+}
+
+.Form-enter-job {
+  margin-top: 30px;
+  width: 100%;
+  border-bottom: 0.5px solid #d4d4d4;
+
+}
+
+.Add-job {
+  width: 100%;
+  padding: 15px 0 15px 15px;
+  border: none;
+  font-size: 1.5rem;
 }
