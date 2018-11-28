@@ -8,13 +8,38 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.allTime = new Date().getTime();
+    this.idCount = 0;
+    this.handleKey = this.handleKey.bind(this);
+    this.jobsList = [];
     this.state = {
-      name:'hao'
+      jobsList : this.jobsList,
+      currentDate : 'Today'
     }
     
   }
 
-     
+  handleKey = (e) => {
+    if(e.key === "Enter"){
+      const input = e.target;
+      const valueInput = input.value;
+      this.idCount++;
+      
+      let job = {
+        id : this.idCount,
+        jobName : valueInput,
+        state : true,
+        currentDate : this.state.currentDate
+
+      }
+      this.jobsList.push(job);
+      console.log('this.jobList :', this.jobsList);
+      this.setState({
+        jobsList: this.jobsList
+      })
+
+    }
+  }
+
 
   render() {
     return (
@@ -24,9 +49,11 @@ class App extends Component {
         </div>
         <Time time = {this.allTime} />
         <div className="Form-enter-job">
-          <input type="text" className="Add-job" placeholder='Add jobs'/>
+          <input type="text" className="Add-job" placeholder='Add jobs' 
+          onKeyPress = {this.handleKey}
+          />
         </div>
-        <TodolList />
+        <TodolList jobsList = {this.state.jobsList} />
       
       </div>
     );
