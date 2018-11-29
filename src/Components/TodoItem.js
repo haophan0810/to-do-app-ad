@@ -5,8 +5,7 @@ class TodoItem extends Component {
     handleClickItem(id) {
         return (event) =>{
             console.log('event.target :', id);
-            // console.log(this.props.activeJob);
-            
+            if(this.props.currentDate !== "Tomorrow")            
                 this.props.activeJob(id);
 
         }

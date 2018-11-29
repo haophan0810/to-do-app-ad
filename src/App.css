@@ -35,7 +35,10 @@
 
 .Add-job {
   width: 100%;
+  letter-spacing: 3px;
+  font-weight: bold;
   padding: 15px 0 15px 15px;
   border: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
+  font-family: 'Dancing Script', cursive;
 }
