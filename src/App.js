@@ -10,12 +10,12 @@ class App extends Component {
     this.allTime = new Date().getTime();
     this.idCount = 0;
     this.handleKey = this.handleKey.bind(this);
+    this.activeJob = this.activeJob.bind(this);
     this.jobsList = [];
     this.state = {
-      jobsList : this.jobsList,
-      currentDate : 'Today'
-    }
-    
+      currentDate : 'Today',
+      jobsList : this.jobsList      
+    }    
   }
 
   handleKey = (e) => {
@@ -29,8 +29,8 @@ class App extends Component {
         jobName : valueInput,
         state : true,
         currentDate : this.state.currentDate
-
       }
+
       this.jobsList.push(job);
       console.log('this.jobList :', this.jobsList);
       this.setState({
@@ -40,6 +40,18 @@ class App extends Component {
     }
   }
 
+  getCurrentDate = (currentDate) => {
+      this.setState({
+        currentDate: currentDate
+      })
+  }
+
+  activeJob = (id) =>{
+    this.jobsList[id-1].state = !this.jobsList[id-1].state;
+    this.setState({
+      jobsList: this.jobsList
+    })
+  }
 
   render() {
     return (
@@ -47,13 +59,18 @@ class App extends Component {
         <div className="Title">
           <h2>TO DO LIST</h2>
         </div>
-        <Time time = {this.allTime} />
+        <Time time = {this.allTime} getCurrentDate = {this.getCurrentDate} />
         <div className="Form-enter-job">
           <input type="text" className="Add-job" placeholder='Add jobs' 
+          disabled={this.state.currentDate === 'Yesterday' ? 'disabled' : false}
           onKeyPress = {this.handleKey}
           />
         </div>
-        <TodolList jobsList = {this.state.jobsList} />
+        <TodolList 
+        jobsList = {this.state.jobsList} 
+        currentDate = {this.state.currentDate}
+        activeJob={this.activeJob}
+        />
       
       </div>
     );

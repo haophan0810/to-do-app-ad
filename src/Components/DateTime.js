@@ -12,6 +12,7 @@ class DateTime extends Component {
     handleActive = (e)=>{
         const {dayName} = this.props;   
         this.props.handleActive(dayName);
+        this.props.getCurrentDate(dayName);
     }
 
 
